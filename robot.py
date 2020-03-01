@@ -20,7 +20,7 @@ class ROBOT:
                                       lo = -3.14159/2 , hi = 3.14159/2 )
 
         # Creating touch sensors inside the cylinders.  
-        TO = sim.send_touch_sensor( body_id = whiteObject )
+        T0 = sim.send_touch_sensor( body_id = whiteObject )
 
         T1 = sim.send_touch_sensor( body_id = redObject ) 
 
@@ -39,7 +39,7 @@ class ROBOT:
         self.P4 = sim.send_position_sensor( body_id = redObject )
 
         # Creating sensor neurons.
-        SN0 = sim.send_sensor_neuron( sensor_id = TO )
+        SN0 = sim.send_sensor_neuron( sensor_id = T0 )
         SN1 = sim.send_sensor_neuron( sensor_id = T1 )
         SN2 = sim.send_sensor_neuron( sensor_id = P2 )
         SN3 = sim.send_sensor_neuron( sensor_id = R3 )
@@ -61,8 +61,8 @@ class ROBOT:
         # Creating synapse.
         for s in sensorNeurons:
             for m in motorNeurons:
-                sim.send_synapse( source_neuron_id = s ,
-                                  target_neuron_id = m ,
+                sim.send_synapse( source_neuron_id = sensorNeurons[ s ] ,
+                                  target_neuron_id = motorNeurons[ m ] ,
                                   weight = wts[ s ] )
         
 

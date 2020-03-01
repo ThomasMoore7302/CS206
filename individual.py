@@ -6,7 +6,7 @@ from robot import ROBOT
 
 class INDIVIDUAL:
     def __init__( self ):
-        self.genome = numpy.random.random(4) * 2 - 1
+        self.genome = numpy.random.random( 4 ) * 2 - 1
         self.fitness = 0
 
     def Start_Evaluate( self , pb ):
